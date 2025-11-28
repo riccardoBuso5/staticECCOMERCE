@@ -21,8 +21,8 @@
 title: BusaTheme Ecommerce
 email: riccardo@example.com
 description: Un tema moderno e responsivo per ecommerce e blog
-baseurl: "" # GitHub Pages Action aggiungerà automaticamente il baseurl
-url: "http://localhost:4000"
+baseurl: "" # GitHub Pages Action will automatically add the baseurl
+url: "https://riccardoBuso5.github.io" # GitHub Pages URL
 author: Riccardo Buso
 github_username: riccardoBuso5
 
