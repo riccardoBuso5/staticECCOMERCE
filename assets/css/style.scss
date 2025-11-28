@@ -1,3 +1,7 @@
+---
+# Front matter per Jekyll - permette di usare variabili Liquid
+---
+
 /* 
 Theme Name: BusaTheme
 Version: 1.0.0
@@ -21,7 +25,7 @@ html{
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333;
-    background-image: url('../images/sfondo.jpg');
+    background-image: url('{{ site.baseurl }}/assets/images/sfondo.jpg');
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
