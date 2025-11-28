@@ -1,0 +1,74 @@
+<!-- Cards Grid Component -->
+<div class="cards-container">
+  {% for card in include.cards %}
+    <a href="{{ card.link }}" class="card">
+      <div class="card-images-carousel">
+        <div class="carousel-images">
+          {% if card.images %}
+            {% for img in card.images %}
+              <img src="{{ img }}" alt="{{ card.title }}" class="card-image carousel-slide" />
+            {% endfor %}
+          {% else %}
+            <img src="{{ card.image }}" alt="{{ card.title }}" class="card-image carousel-slide" />
+          {% endif %}
+        </div>
+        {% if card.images and card.images.size > 1 %}
+          <button class="carousel-btn carousel-prev" aria-label="Previous image"></button>
+          <button class="carousel-btn carousel-next" aria-label="Next image"></button>
+          <div class="carousel-indicators">
+            {% for img in card.images %}
+              <span class="indicator {% if forloop.first %}active{% endif %}"></span>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">{{ card.title }}</h2>
+        <p class="card-description">{{ card.description }}</p>
+        <span class="card-button">{{ card.button_text | default: 'Scopri di più →' }}</span>
+      </div>
+    </a>
+  {% endfor %}
+</div>
+
+<script>
+document.querySelectorAll('.card').forEach(card => {
+  const carousel = card.querySelector('.carousel-images');
+  const slides = card.querySelectorAll('.carousel-slide');
+  const prevBtn = card.querySelector('.carousel-prev');
+  const nextBtn = card.querySelector('.carousel-next');
+  const indicators = card.querySelectorAll('.indicator');
+  
+  if (!carousel || slides.length <= 1) return;
+  
+  let currentIndex = 0;
+  
+  function showSlide(index) {
+    currentIndex = (index + slides.length) % slides.length;
+    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    indicators.forEach((indicator, i) => {
+      indicator.classList.toggle('active', i === currentIndex);
+    });
+  }
+  
+  if (prevBtn) prevBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    showSlide(currentIndex - 1);
+  });
+  
+  if (nextBtn) nextBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    showSlide(currentIndex + 1);
+  });
+  
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      showSlide(index);
+    });
+  });
+});
+</script>

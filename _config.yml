@@ -21,8 +21,8 @@
 title: BusaTheme Ecommerce
 email: riccardo@example.com
 description: Un tema moderno e responsivo per ecommerce e blog
-baseurl: "/staticECCOMERCE" # the subpath of your site, e.g. /blog
-url: "https://riccardoBuso5.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # GitHub Pages Action aggiungerà automaticamente il baseurl
+url: "http://localhost:4000"
 author: Riccardo Buso
 github_username: riccardoBuso5
 

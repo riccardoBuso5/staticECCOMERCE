@@ -1,0 +1,315 @@
+/* BusaTheme - Sezioni (Noi, Menu, Cocktail) */
+
+.noi, .menu, .cocktail {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.6) 100%);
+    margin: 3rem auto;
+    padding: 3.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    gap: 2.5rem;
+    align-items: flex-start;
+    backdrop-filter: blur(5px);
+    position: relative;
+    z-index: 1;
+    border: 2px solid transparent;
+    max-width: 1100px;
+}
+
+.noi:hover, .menu:hover, .cocktail:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 45px rgba(0,0,0,0.4);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.menu:hover {
+    border: 2px solid #d2691e;
+}
+
+.noi:hover {
+    border: 2px solid #8b4513;
+}
+
+.cocktail:hover {
+    border: 2px solid #6b8e23;
+}
+
+.noi .text-content, .menu .text-content, .cocktail .text-content {
+    flex: 1;
+    min-width: 350px;
+}
+
+.noi .image-content, .menu .image-content, .cocktail .image-content {
+    flex: 0 0 350px;
+    max-width: 350px;
+}
+
+.menu .image-content, .cocktail .image-content {
+    flex: 0 0 400px;
+    max-width: 400px;
+    align-self: flex-start;
+}
+
+.noi h2, .menu h2, .cocktail h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    color: #2c2c2c;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    font-style: italic;
+    font-weight: 700;
+}
+
+.noi h2::after, .menu h2::after, .cocktail h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #007cba, #005a8b);
+    margin: 1rem 0;
+    border-radius: 2px;
+}
+
+.noi img, .menu img, .cocktail img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.noi img:hover, .menu img:hover, .cocktail img:hover {
+    transform: scale(1.05);
+}
+
+.noi p, .menu p, .cocktail p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #2c2c2c;
+    text-align: justify;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+/* Stile Noi */
+.noi {
+    background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+}
+
+.noi h2 {
+    color: #333333;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+}
+
+.noi h2::after {
+    background: linear-gradient(90deg, #333333, #666666);
+}
+
+.noi p {
+    color: #444444;
+}
+
+/* Stile Menu */
+.menu {
+    background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+    color: #333333;
+    border-left: 4px solid #999999;
+}
+
+.menu h2 {
+    color: #333333;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+}
+
+.menu h2::after {
+    background: linear-gradient(90deg, #999999, #666666);
+}
+
+.menu p {
+    color: #555555;
+    text-align: left;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.menu .image-content {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.menu-carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 500%;
+}
+
+.menu-carousel img {
+    width: 20%;
+    height: 400px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* Stile Cocktail */
+.cocktail {
+    background: linear-gradient(135deg, #f0f0f0 0%, #ffffff 100%);
+}
+
+.cocktail h2 {
+    color: #333333;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+}
+
+.cocktail h2::after {
+    background: linear-gradient(90deg, #666666, #999999);
+}
+
+.cocktail p {
+    color: #555555;
+}
+
+.cocktail .image-content {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.cocktail-carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 500%;
+}
+
+.cocktail-carousel img {
+    width: 20%;
+    height: 400px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* Carousel Controls */
+.carousel-controls {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.carousel-dot.active {
+    background: #d2691e;
+}
+
+.carousel-dot:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.carousel-arrow:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-arrow.prev {
+    left: 10px;
+}
+
+.carousel-arrow.next {
+    right: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+    .noi, .menu, .cocktail {
+        margin: 2.5rem 0;
+        padding: 2rem;
+        gap: 1.5rem;
+    }
+    
+    .noi .image-content, .menu .image-content, .cocktail .image-content {
+        flex: 0 0 250px;
+        max-width: 250px;
+    }
+    
+    .menu .image-content, .cocktail .image-content {
+        flex: 0 0 320px;
+        max-width: 320px;
+    }
+    
+    .noi h2, .menu h2, .cocktail h2 {
+        font-size: 2.2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .noi, .menu, .cocktail {
+        margin: 2rem 0;
+        padding: 1.5rem;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .noi .image-content, .menu .image-content, .cocktail .image-content {
+        flex: none;
+        max-width: 100%;
+        order: -1;
+    }
+    
+    .noi h2, .menu h2, .cocktail h2 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+    
+    .noi h2::after, .menu h2::after, .cocktail h2::after {
+        width: 60px;
+        margin: 0.8rem auto;
+    }
+    
+    .noi p, .menu p, .cocktail p {
+        font-size: 1rem;
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .noi, .menu, .cocktail {
+        margin: 1.5rem 0;
+        padding: 1.2rem;
+    }
+    
+    .noi h2, .menu h2, .cocktail h2 {
+        font-size: 1.5rem;
+    }
+    
+    .noi p, .menu p, .cocktail p {
+        font-size: 0.9rem;
+    }
+}
